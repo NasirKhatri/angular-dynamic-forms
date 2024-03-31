@@ -2,27 +2,27 @@ export interface RootObject {
     formTitle: string;
     saveBtnTitle: string;
     resetBtnTitle: string;
-    formControls: FormControl[];
+    formControls: IFormControl[];
 }
 
-export interface FormControl {
+export interface IFormControl {
     name: string;
     label: string;
     value?: string;
     placeholder: string;
     class: string;
     type: string;
-    validators: Validator[];
+    validators: IValidator[];
     radioOptions?: string[];
-    options?: Option[];
+    options?: IOption[];
 }
 
-export interface Option {
+export interface IOption {
     id: number;
     value: string;
 }
 
-export interface Validator {
+export interface IValidator {
     validatorName: string;
     required?: boolean;
     message: string;
