@@ -1,2 +1,4 @@
-<app-dynamic-form [form]="form"></app-dynamic-form>
-<router-outlet></router-outlet>
+<div class="container p-2">
+  <app-dynamic-form *ngIf="form" [form]="form"></app-dynamic-form>
+  <router-outlet></router-outlet>
+</div>

@@ -17,7 +17,7 @@ export class DynamicFormComponent implements OnInit {
   formGroup: FormGroup = this._fb.group({});
 
   ngOnInit(): void {
-    if(this.form.formControls) {
+    if(this.form && this.form.formControls) {
       let tempFormGroup: any = {};
       this.form.formControls.forEach((formControl: IFormControl) => {
         let validators: any = [];
@@ -27,10 +27,9 @@ export class DynamicFormComponent implements OnInit {
           if(validator.validatorName === 'minlength') validators.push(Validators.minLength(validator.minLength as number));
           if(validator.validatorName === 'maxlength') validators.push(Validators.maxLength(validator.maxLength as number));
         })
-        tempFormGroup[formControl.name] = [formControl.value || null, validators]
+        tempFormGroup[formControl.name] = [formControl.value, validators]
       })
       this.formGroup = this._fb.group(tempFormGroup);
     }
   }
-
 }

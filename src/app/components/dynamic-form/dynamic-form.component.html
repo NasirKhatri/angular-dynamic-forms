@@ -1,1 +1,13 @@
-<p>dynamic-form works!</p>
+<ng-container *ngIf="form">
+    <h2>{{form.formTitle}}</h2>
+    <form [formGroup]="formGroup" class="row">
+        <ng-container *ngFor="let control of form.formControls">
+            <div [class]="control.class" class="mb-2"
+                *ngIf="['email', 'password', 'text', 'number', 'data'].includes(control.type)">
+                <label for="" class="form-label">{{control.label}}</label>
+                <input [formControlName]="control.name" [type]="control.type" class="form-control"
+                    [placeholder]="control.placeholder" />
+            </div>
+        </ng-container>
+    </form>
+</ng-container>

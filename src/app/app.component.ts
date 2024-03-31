@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._http.get<any>('assets/dynamicForm.json').subscribe(res => this.form = res);
+    this._http.get<RootObject>('assets/dynamicForm.json').subscribe(res => this.form = res);
   }
 
 }
