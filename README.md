@@ -1,6 +1,7 @@
 # AngularDynamicForms
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+In this project form fields are being created based on the JSON file. And validators are also been received in form of JSON.
 
 ## Development server
 
