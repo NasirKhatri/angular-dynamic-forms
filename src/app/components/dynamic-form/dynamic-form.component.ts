@@ -32,4 +32,23 @@ export class DynamicFormComponent implements OnInit {
       this.formGroup = this._fb.group(tempFormGroup);
     }
   }
+
+  getValidationError(control: IFormControl): string {
+    const myFormControl = this.formGroup.get(control.name);
+    let errorMessage = ''
+    control.validators.forEach((val) => {
+      if(myFormControl?.hasError(val.validatorName as string)) {
+        errorMessage = val.message;
+      }
+    })
+    return errorMessage;
+  }
+
+  onSubmit() {
+    console.log(this.formGroup.value);
+  }
+
+  onReset() {
+    this.formGroup.reset();
+  }
 }
